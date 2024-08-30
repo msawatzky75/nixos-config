@@ -43,7 +43,7 @@
         ./bluetooth.nix
         ./networking.nix
         # ./mac-randomize.nix
-        # ./open-ssh.nix
+        ./open-ssh.nix
         ./firewall.nix
         ./dns.nix
         # ./vpn.nix
