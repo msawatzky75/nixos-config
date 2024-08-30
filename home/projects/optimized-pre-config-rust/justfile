@@ -1,6 +1,6 @@
 set export
 
-set shell := ["fish", "-c"]
+set shell := ["zsh"]
 
 alias w := watch
 alias b := build
@@ -10,7 +10,7 @@ alias t := test
 alias c := coverage
 
 # run `just --list` for project
-default: 
+default:
 	just --list
 
 # run `cargo watch` for project

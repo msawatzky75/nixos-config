@@ -18,7 +18,7 @@
         ./opengl.nix
         # ./fingerprint-scanner.nix
         # ./clamav-scanner.nix
-        ./yubikey.nix
+        # ./yubikey.nix
         ./sound.nix
         ./usb.nix
         ./time.nix
@@ -50,13 +50,13 @@
         ./users.nix
         ./virtualisation.nix
         ./programming-languages.nix
-        ./lsp.nix
+        # ./lsp.nix
         ./rust.nix
-        ./wasm.nix
+        # ./wasm.nix
         ./info-fetchers.nix
         ./utils.nix
         ./terminal-utils.nix
-        ./work.nix
+        # ./work.nix
       ];
     };
   };
