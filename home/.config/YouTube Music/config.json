@@ -17,9 +17,7 @@
 		"resumeOnStart": true,
 		"proxy": "",
 		"startingPage": "",
-		"themes": [
-			"/home/xnm/.config/YouTube Music/macchiato.css"
-		]
+		"themes": ["/home/matthew/.config/YouTube Music/macchiato.css"]
 	},
 	"plugins": {
 		"navigation": {
@@ -75,14 +73,7 @@
 		"sponsorblock": {
 			"enabled": false,
 			"apiURL": "https://sponsor.ajay.app",
-			"categories": [
-				"sponsor",
-				"intro",
-				"outro",
-				"interaction",
-				"selfpromo",
-				"music_offtopic"
-			]
+			"categories": ["sponsor", "intro", "outro", "interaction", "selfpromo", "music_offtopic"]
 		},
 		"video-toggle": {
 			"enabled": false,
@@ -144,10 +135,7 @@
 							"count": 30,
 							"cubeHeight": 5,
 							"fillColor": {
-								"gradient": [
-									"#FAD961",
-									"#F76B1C"
-								]
+								"gradient": ["#FAD961", "#F76B1C"]
 							},
 							"lineColor": "rgba(0,0,0,0)",
 							"radius": 20
@@ -160,10 +148,7 @@
 							"count": 12,
 							"cubeHeight": 5,
 							"fillColor": {
-								"gradient": [
-									"#FAD961",
-									"#F76B1C"
-								]
+								"gradient": ["#FAD961", "#F76B1C"]
 							},
 							"lineColor": "rgba(0,0,0,0)",
 							"radius": 10
@@ -173,11 +158,7 @@
 						"type": "Circles",
 						"config": {
 							"lineColor": {
-								"gradient": [
-									"#FAD961",
-									"#FAD961",
-									"#F76B1C"
-								],
+								"gradient": ["#FAD961", "#FAD961", "#F76B1C"],
 								"rotate": 90
 							},
 							"lineWidth": 4,
