@@ -57,6 +57,7 @@
         ./utils.nix
         ./terminal-utils.nix
         # ./work.nix
+        ./virtual-machine.nix
       ];
     };
   };

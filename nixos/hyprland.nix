@@ -14,8 +14,7 @@
     hypridle
     hyprpaper
 
-    wezterm
-    cool-retro-term
+    kitty
 
     starship
     helix
