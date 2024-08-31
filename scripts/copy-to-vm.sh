@@ -1,0 +1,1 @@
+rsync ~/nixos-config nix-vm:~ -ravP

@@ -14,6 +14,7 @@
 ![Showcase Gif](home/Pictures/Records/record.gif)
 
 ## Table of Contents
+
 - [About](#-about)
 - [Showcase](#-showcase)
 - [Components](#-components)
@@ -36,7 +37,7 @@ This repository houses my NixOS Linux ❄️ flake configuration, featuring the 
 This system leverages cutting-edge channels and versions of software to provide you with the latest updates and features. Notably, it utilizes:
 
 - **flake** (An experimental feature of the Nix package manager)
-- ~~**nur** (The Nix User Repository)~~ *currently disabled
+- ~~**nur** (The Nix User Repository)~~ \*currently disabled
 - **nixpkgs**: unstable
 - **rust**: nightly version
 
@@ -60,40 +61,40 @@ The showcased images do not reflect the latest version of the system's appearanc
 
 ## 🔧 Components
 
-| Component             | Version/Name                |
-|-----------------------|-----------------------------|
-| Distro                | NixOS                       |
-| Kernel                | Zen                         |
-| Shell                 | Fish                        |
-| Display Server        | Wayland                     |
-| WM (Compositor)       | Hyprland                    |
-| Bar                   | Waybar                      |
-| Notification          | Dunst                       |
-| Launcher              | Rofi-Wayland                |
-| Editor                | Helix                       |
-| Terminal              | WezTerm + Starship          |
-| OSD                   | Avizo                       |
-| Night Gamma           | Gammastep                   |
-| Fetch Utility         | Neofetch                    |
-| Theme                 | Catppuccin Macchiato        |
-| Icons                 | Colloid-teal-dark, Numix-Circle |
-| Font                  | JetBrains Mono + Nerd Font Patch |
-| Player                | Youtube Music + Spotify     |
-| File Browser          | Thunar                      |
-| Internet Browser      | Qutebrowser, Brave + Vimium + NightTab + Stylus |
-| Mimetypes             | MPV, Imv, Zathura            |
-| Image Editor          | Swappy                      |
-| Screenshot            | Grim + Slurp                |
-| Recorder              | Wl-screenrec                 |
-| Color Picker          | Hyprpicker                  |
-| Clipboard             | Wl-clipboard + Cliphist + Wl-clip-persist    |
-| Idle                  | Hypridle                    |
-| Lock                  | Hyprlock                    |
-| Logout menu           | Wlogout                     |
-| Wallpaper             | Hyprpaper                   |
-| Graphical Boot        | Plymouth + Catppuccin-plymouth |
-| Display Manager       | Greetd + Tuigreet           |
-| Containerization      | Podman                      |
+| Component        | Version/Name                                    |
+| ---------------- | ----------------------------------------------- |
+| Distro           | NixOS                                           |
+| Kernel           | Zen                                             |
+| Shell            | Fish                                            |
+| Display Server   | Wayland                                         |
+| WM (Compositor)  | Hyprland                                        |
+| Bar              | Waybar                                          |
+| Notification     | Dunst                                           |
+| Launcher         | Rofi-Wayland                                    |
+| Editor           | Helix                                           |
+| Terminal         | WezTerm + Starship                              |
+| OSD              | Avizo                                           |
+| Night Gamma      | Gammastep                                       |
+| Fetch Utility    | Neofetch                                        |
+| Theme            | Catppuccin Macchiato                            |
+| Icons            | Colloid-teal-dark, Numix-Circle                 |
+| Font             | JetBrains Mono + Nerd Font Patch                |
+| Player           | Youtube Music + Spotify                         |
+| File Browser     | Thunar                                          |
+| Internet Browser | Qutebrowser, Brave + Vimium + NightTab + Stylus |
+| Mimetypes        | MPV, Imv, Zathura                               |
+| Image Editor     | Swappy                                          |
+| Screenshot       | Grim + Slurp                                    |
+| Recorder         | Wl-screenrec                                    |
+| Color Picker     | Hyprpicker                                      |
+| Clipboard        | Wl-clipboard + Cliphist + Wl-clip-persist       |
+| Idle             | Hypridle                                        |
+| Lock             | Hyprlock                                        |
+| Logout menu      | Wlogout                                         |
+| Wallpaper        | Hyprpaper                                       |
+| Graphical Boot   | Plymouth + Catppuccin-plymouth                  |
+| Display Manager  | Greetd + Tuigreet                               |
+| Containerization | Podman                                          |
 
 And many other useful utilities. The full list can be found in the system configuration files at `nixos` directory.
 
@@ -111,11 +112,11 @@ And many other useful utilities. The full list can be found in the system config
 
 1. Download and Install NixOS from the [official site](https://nixos.org/download).
 2. Temporarily install ripgrep and fish using the command: `nix-shell -p ripgrep fish --run fish`. You can also use classic bash and grep for the next step without installing fish and ripgrep.
-3. Run the command `rg --hidden FIXME` and change/add lines to match your device, swaps, partitions, peripherals, file systems, etc. in the configuration files. 
+3. Run the command `rg --hidden FIXME` and change/add lines to match your device, swaps, partitions, peripherals, file systems, etc. in the configuration files.
 
    🚨 Ensure that you configure USBGuard in the `nixos/usb.nix` file to avoid potential issues. By default, USBGuard blocks all USB devices, which can lead to the disabling of crucial hardware components such as the integrated camera, bluetooth, wifi, etc. To configure USBGuard properly, add your trusted USB devices to the configuration. You can obtain a list of all connected devices by using the `lsusb` command from the `usbutils` package.
 
-    Failure to configure USBGuard appropriately may result in the inability to connect any USB devices to your machine. If needed, you can also disable USBGuard altogether by setting `services.usbguard.enable` to `false` in the configuration:`services.usbguard.enable = false;`. This step ensures that USBGuard is not actively blocking any USB devices.
+   Failure to configure USBGuard appropriately may result in the inability to connect any USB devices to your machine. If needed, you can also disable USBGuard altogether by setting `services.usbguard.enable` to `false` in the configuration:`services.usbguard.enable = false;`. This step ensures that USBGuard is not actively blocking any USB devices.
 
    🚨 Also, important: If you use disk encryption with LUKS and want to use encrypted swap, you need to enable swap on LUKS. This is usually auto-generated in `/etc/nixos/configuration.nix` as the `boot.initrd.luks.devices."luks-...".device = "/dev/disk/by-uuid/...";` code block, if you set this option up during the NixOS installation process. You can simply copy this snippet to either `nixos/swap.nix`, `nixos/hardware-configuration.nix`, or `nixos/configuration.nix` (Personally, I prefer to copy it to `hardware-configuration.nix`).
 
@@ -128,83 +129,84 @@ And many other useful utilities. The full list can be found in the system config
 8. Run the command `sudo nixos-rebuild switch --flake /etc/nixos#your-hostname --update-input nixpkgs --update-input rust-overlay --commit-lock-file --upgrade` or `nswitchu`. If you chose first command, replace `your-hostname` with your hostname before running the command; by default, hostname is set to `isitreal-laptop`.
 9. Post-installation configuration:
 
- - Import GNOME settings along with the theme by executing the following command: `dconf load / < home/.config/gnome_settings_backup.dconf`. Additionally, you can use tools like **gnome-tweaks** or **themechanger** to fine-tune specific theme preferences to your liking.
+- Import GNOME settings along with the theme by executing the following command: `dconf load / < home/.config/gnome_settings_backup.dconf`. Additionally, you can use tools like **gnome-tweaks** or **themechanger** to fine-tune specific theme preferences to your liking.
 
- - Install dictionaries for spellchecking in Qutebrowser by using the similar command in **bash**: `$(find $(nix-store --query --outputs $(which qutebrowser)) -iname '*dictcli.py*' | head -1) install en-US hi-IN`.
-  To obtain a list of all available dictionaries, run: `$(find $(nix-store --query --outputs $(which qutebrowser)) -iname '*dictcli.py*' | head -1) list` in **bash**. 
+- Install dictionaries for spellchecking in Qutebrowser by using the similar command in **bash**: `$(find $(nix-store --query --outputs $(which qutebrowser)) -iname '*dictcli.py*' | head -1) install en-US hi-IN`.
+  To obtain a list of all available dictionaries, run: `$(find $(nix-store --query --outputs $(which qutebrowser)) -iname '*dictcli.py*' | head -1) list` in **bash**.
   For more information, visit [the Qutebrowser page on the nixos wiki](https://wiki.nixos.org/wiki/Qutebrowser).
 
- - Apply Catppuccin theme for websites in your browser (Brave, Firefox, Chromium):
-   - Install the Stylus Extension from its [official website](https://add0n.com/stylus.html).
-   - Open the extension's settings page and navigate to the Backup section.
-   - Click "Import" and select the file `home/.config/stylus-catppuccin.json`.
+- Apply Catppuccin theme for websites in your browser (Brave, Firefox, Chromium):
 
- - Apply Catppuccin theme for Cool-Retro-Term:
-   - Launch Cool-Retro-Term.
-   - Right-click on the window and select "Settings".
-   - In the General panel, click "Import" and select the file `home/.config/cool-retro-term-style.json`.
-   - Select the imported profile named "catppuccin-theme".
-   - Click "Load" and exit from "Settings".
+  - Install the Stylus Extension from its [official website](https://add0n.com/stylus.html).
+  - Open the extension's settings page and navigate to the Backup section.
+  - Click "Import" and select the file `home/.config/stylus-catppuccin.json`.
 
-  - Login to your accounts.
+- Apply Catppuccin theme for Cool-Retro-Term:
 
-  - Customize graphical applications to suit your preferences.
+  - Launch Cool-Retro-Term.
+  - Right-click on the window and select "Settings".
+  - In the General panel, click "Import" and select the file `home/.config/cool-retro-term-style.json`.
+  - Select the imported profile named "catppuccin-theme".
+  - Click "Load" and exit from "Settings".
 
-  After this, you will have a complete system.
+- Login to your accounts.
+
+- Customize graphical applications to suit your preferences.
+
+After this, you will have a complete system.
 
 ## ⌨️ Keybindings
 
 ### Main
 
-| Key Combination        | Action                       |
-|------------------------|------------------------------|
-| ALT + R                | Resize windows mode          |
-| ALT + M                | Move windows mode            |
-| SUPER + H, J, K, L     | Change window focus          |
-| SUPER + 1..0           | Change workspace             |
-| SUPER + SHIFT + 1..0   | Move window to workspace     |
-| SUPER + SHIFT + Q      | Kill active window           |
-| SUPER + SHIFT + F      | Toggle floating window       |
-| SUPER + CTRL + F       | Toggle full-screen           |
-| SUPER + SHIFT + O      | Toggle split                 |
-| SUPER + SHIFT + P      | Toggle pseudo                |
-| SUPER + SHIFT + M      | Exit from `hyprland`         |
-| SUPER + CTRL + E       | Expose all windows using `pyprland` |
-| SUPER + CTRL + M       | Expose all minimized windows using `pyprland` |
-| SUPER + M              | Minimize or restore a window using `pyprland` |
-| SUPER + CTRL + T       | Launch scratchpad with `wezterm` using `pyprland` |
-| SUPER + CTRL + V       | Launch scratchpad with `pavucontrol` using `pyprland` |
-| SUPER + T              | Launch `wezterm`             |
-| SUPER + D              | Launch `rofi -drun`          |
-| SUPER + B              | Launch `qutebrowser`         |
-| SUPER + SHIFT + B      | Launch `brave`               |
-| SUPER + F              | Launch `thunar`              |
-| SUPER + ESCAPE         | Launch `wlogout`             |
-| SUPER + S              | Launch `spotify`             |
-| SUPER + Y              | Launch `youtube-music`       |
-| SUPER + SHIFT + D      | Launch `discord`             |
-| SUPER + SHIFT + T      | Launch `telegram`            |
-| SUPER + SHIFT + L      | Launch `hyprlock`            |
-| SUPER + SHIFT + S      | Take screenshot              |
-| SUPER + E              | Launch `swappy` to edit last taken screenshot |
-| SUPER + R              | Record screen area (MP4)     |
-| SUPER + SHIFT + R      | Record screen area (GIF)     |
-| SUPER + C              | Launch color picker (using `hyperpicer`) |
-| SUPER + Z              | Toggle Zoom (with `pyprland`)|
-| SUPER + V              | Launch clipboard menu (`rofi -dmenu`) |
-| SUPER + SHIFT + V      | Launch clipboard menu (`rofi -dmenu`) (copy to clipboard) |
-| SUPER + X              | Launch clipboard deletion item menu (`rofi -dmenu`) |
-| SUPER + SHIFT + X      | Clear clipboard             |
-| SUPER + U              | Launch bookmark menu (`rofi -dmenu`) |
-| SUPER + SHIFT + U      | Add text from clipboard to bookmark |
-| SUPER + CTRL + U       | Launch bookmark deletion item menu (`rofi -dmenu`) |
-| SUPER + SHIFT + A      | Toggle airplane mode        |
-| SUPER + SHIFT + N      | Toggle notifications        |
-| SUPER + SHIFT + Y      | Toggle bluetooth            |
-| SUPER + SHIFT + W      | Toggle wifi                 |
-| SUPER + P              | Toggle play-pause player    |
-| SUPER + ]              | Player next track           |
-| SUPER + [              | Player previous track       |
+| Key Combination      | Action                                                    |
+| -------------------- | --------------------------------------------------------- |
+| ALT + R              | Resize windows mode                                       |
+| ALT + M              | Move windows mode                                         |
+| SUPER + H, J, K, L   | Change window focus                                       |
+| SUPER + 1..0         | Change workspace                                          |
+| SUPER + SHIFT + 1..0 | Move window to workspace                                  |
+| SUPER + SHIFT + Q    | Kill active window                                        |
+| SUPER + SHIFT + F    | Toggle floating window                                    |
+| SUPER + CTRL + F     | Toggle full-screen                                        |
+| SUPER + SHIFT + O    | Toggle split                                              |
+| SUPER + SHIFT + P    | Toggle pseudo                                             |
+| SUPER + SHIFT + M    | Exit from `hyprland`                                      |
+| SUPER + CTRL + E     | Expose all windows using `pyprland`                       |
+| SUPER + CTRL + M     | Expose all minimized windows using `pyprland`             |
+| SUPER + M            | Minimize or restore a window using `pyprland`             |
+| SUPER + CTRL + T     | Launch scratchpad with `wezterm` using `pyprland`         |
+| SUPER + CTRL + V     | Launch scratchpad with `pavucontrol` using `pyprland`     |
+| SUPER + T            | Launch `kitty`                                            |
+| SUPER + D            | Launch `rofi -drun`                                       |
+| SUPER + B            | Launch `qutebrowser`                                      |
+| SUPER + SHIFT + B    | Launch `brave`                                            |
+| SUPER + F            | Launch `thunar`                                           |
+| SUPER + ESCAPE       | Launch `wlogout`                                          |
+| SUPER + S            | Launch `spotify`                                          |
+| SUPER + Y            | Launch `youtube-music`                                    |
+| SUPER + SHIFT + D    | Launch `discord`                                          |
+| SUPER + SHIFT + L    | Launch `hyprlock`                                         |
+| SUPER + SHIFT + S    | Take screenshot                                           |
+| SUPER + E            | Launch `swappy` to edit last taken screenshot             |
+| SUPER + R            | Record screen area (MP4)                                  |
+| SUPER + SHIFT + R    | Record screen area (GIF)                                  |
+| SUPER + C            | Launch color picker (using `hyperpicer`)                  |
+| SUPER + Z            | Toggle Zoom (with `pyprland`)                             |
+| SUPER + V            | Launch clipboard menu (`rofi -dmenu`)                     |
+| SUPER + SHIFT + V    | Launch clipboard menu (`rofi -dmenu`) (copy to clipboard) |
+| SUPER + X            | Launch clipboard deletion item menu (`rofi -dmenu`)       |
+| SUPER + SHIFT + X    | Clear clipboard                                           |
+| SUPER + U            | Launch bookmark menu (`rofi -dmenu`)                      |
+| SUPER + SHIFT + U    | Add text from clipboard to bookmark                       |
+| SUPER + CTRL + U     | Launch bookmark deletion item menu (`rofi -dmenu`)        |
+| SUPER + SHIFT + A    | Toggle airplane mode                                      |
+| SUPER + SHIFT + N    | Toggle notifications                                      |
+| SUPER + SHIFT + Y    | Toggle bluetooth                                          |
+| SUPER + SHIFT + W    | Toggle wifi                                               |
+| SUPER + P            | Toggle play-pause player                                  |
+| SUPER + ]            | Player next track                                         |
+| SUPER + [            | Player previous track                                     |
 
 You can find all other keybindings in `/home/.config/hypr/hyprland.conf` in the bind section. All system fish scripts are located at `/home/.config/fish/functions` directory.
 
@@ -213,12 +215,14 @@ You can find all other keybindings in `/home/.config/hypr/hyprland.conf` in the 
 This system includes a fish shell configuration file (`/home/.config/fish/config.fish`) that provides various aliases to enhance your experience working with it.
 
 Common commands:
+
 - `cl`: clear the terminal screen (shorthand for `clear`)
 - `lgit`: launch the `lazygit` command-line Git client
 - `ldocker`: launch the `lazydocker` command-line Docker client
 - `conf`: navigate to the `~/.config` directory
 
 NixOS-specific commands:
+
 - `nswitch`: rebuild your system using the current flake
 - `nswitchu`: rebuild and update your system using the current flake
 - `nau`: add the unstable channel to the package manager
@@ -241,7 +245,7 @@ Here are some tips to enhance your Rust experience on this system:
    - Locate the `nixos/rust-toolchain.toml` file and make the necessary adjustments based on your requirements.
 
    - If you are working on multiple projects with distinct `rust-toolchain.toml` files or need to switch between stable and nightly Rust versions, consider the following options:
-   
+
      - Set up a Nix environment using `flake.nix` and [rust-overlay](https://github.com/oxalica/rust-overlay) for each project separately. Utilize `nix develop` or `direnv` to manage project-specific Rust environments.
 
      - Alternatively, you can install `rustup` through `environment.systemPackages` and nixpkgs for a system-wide Rust setup. This allows you to manage Rust versions globally through `rustup`.
@@ -255,6 +259,7 @@ Here are some tips to enhance your Rust experience on this system:
 
 4. **Cargo and Rust Tools:**
    This system comes equipped with a variety of cargo and rust tools to ensure a smooth Rust development experience. Some of these tools include:
+
    - `rust-analyzer`
    - `cargo-watch`
    - `cargo-deny`
@@ -277,15 +282,16 @@ Here are some tips to enhance your Rust experience on this system:
    You can set up your Rust project environment on this system using `nix develop` or `nix-shell` with `default.nix`, `shell.nix`, or `flake.nix` to create a tailored environment for your Rust project (Also, I personally recommend using it alongside with [direnv](https://direnv.net/)).
 
 ## 🔑 Yubikey on NixOS
+
 This repo contains a NixOS configuration file (`nixos/yubikey.nix`) enabling:
 
-  - Yubikey authentication with pam_u2f
-  - Passwordless login in greetd, sudo, ssh, and hyprlock
+- Yubikey authentication with pam_u2f
+- Passwordless login in greetd, sudo, ssh, and hyprlock
 
-🚨 Personal Recommendation:  While convenient, using a Yubikey for display managers (like greetd) and screen lockers (like hyprlock) without  additional two-factor or multi-factor authentication (2FA/MFA) has risks. If your Yubikey is lost or stolen, someone could gain full system access before you reset keys. Yubikeys excel at protecting against online attacks but are less secure against offline attacks.
+🚨 Personal Recommendation: While convenient, using a Yubikey for display managers (like greetd) and screen lockers (like hyprlock) without additional two-factor or multi-factor authentication (2FA/MFA) has risks. If your Yubikey is lost or stolen, someone could gain full system access before you reset keys. Yubikeys excel at protecting against online attacks but are less secure against offline attacks.
 
 🛡️ For enhanced security and a passwordless experience:
-  You can consider a YubiKey Bio Series device. These keys support FIDO2/WebAuthn and FIDO U2F and has built in fingerprint scanner for strong authentication. Please note, they do not offer Smart card, OpenPGP, or OTP functionality.
+You can consider a YubiKey Bio Series device. These keys support FIDO2/WebAuthn and FIDO U2F and has built in fingerprint scanner for strong authentication. Please note, they do not offer Smart card, OpenPGP, or OTP functionality.
 
 ## 📜 License
 

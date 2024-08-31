@@ -9,11 +9,9 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       spotify
-      youtube-music
       discord
-      tdesktop
       vscodium
-      brave
+      firefox
     ];
   };
 

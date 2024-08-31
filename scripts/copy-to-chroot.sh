@@ -1,0 +1,1 @@
+rsync ~/nixos-config /mnt/home/matthew -ravP

@@ -37,7 +37,7 @@
   };
   programs.firejail = {
     enable = true;
-    wrappedBinaries = { 
+    wrappedBinaries = {
       mpv = {
         executable = "${lib.getBin pkgs.mpv}/bin/mpv";
         profile = "${pkgs.firejail}/etc/firejail/mpv.profile";
@@ -57,10 +57,6 @@
       slack = {
         executable = "${lib.getBin pkgs.slack}/bin/slack";
         profile = "${pkgs.firejail}/etc/firejail/slack.profile";
-      };
-      telegram-desktop = {
-        executable = "${lib.getBin pkgs.tdesktop}/bin/telegram-desktop";
-        profile = "${pkgs.firejail}/etc/firejail/telegram-desktop.profile";
       };
       brave = {
         executable = "${lib.getBin pkgs.brave}/bin/brave";

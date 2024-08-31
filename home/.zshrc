@@ -2,6 +2,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_RUNTIME_DIR="$HOME/.runtime"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -10,9 +11,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.local/share/oh-my-zsh"
 
@@ -20,7 +18,6 @@ export ZSH="$HOME/.local/share/oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -148,8 +145,6 @@ export NVM_DIR="$HOME/.local/share/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#!/bin/bash
-
 # Get the current user's home directory
 HOME_DIR=$(eval echo "~")
 
@@ -162,14 +157,8 @@ if [ -d "$DIRECTORY_PATH" ]; then
   export PATH="$PATH:$DIRECTORY_PATH"
 fi
 
-
 CARGO_PATH="/home/matthew/.local/share/cargo/bin"
-
-# Check if the directory exists
-if [ -d "$CARGO_PATH" ]; then
-  # Add the directory to the PATH
-  export PATH="$PATH:$CARGO_PATH"
-fi
+if [ -d "$CARGO_PATH" ]; then export PATH="$PATH:$CARGO_PATH"; fi
 
 _dotnet_zsh_complete()
 {
