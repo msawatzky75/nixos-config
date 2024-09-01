@@ -2,7 +2,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_RUNTIME_DIR="$HOME/.runtime"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -123,10 +122,11 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export NVM_DIR="$XDG_DATA_HOME"/nvm
 
-alias sail="vendor/bin/sail"
 alias kssh="kitty +kitten ssh"
 alias mpv="flatpak run io.mpv.Mpv"
 alias code="flatpak run com.visualstudio.code"
+alias ll="ls -Alh --color=auto"
+alias icat="kitty +kitten icat"
 
 PATH="/home/matthew/.cargo/bin:$PATH"
 

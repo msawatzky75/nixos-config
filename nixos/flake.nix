@@ -15,7 +15,7 @@
         ./hardware-configuration.nix
         # ./nvidia.nix
         # ./disable-nvidia.nix
-        # ./opengl.nix
+        ./opengl.nix
         # ./fingerprint-scanner.nix
         # ./clamav-scanner.nix
         # ./yubikey.nix

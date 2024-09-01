@@ -12,3 +12,6 @@
 
 [commit]
 	gpgsign = true
+[user]
+	email = msawatzky75@gmail.com
+	name = Matthew Sawatzky
