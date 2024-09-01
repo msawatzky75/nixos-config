@@ -57,8 +57,9 @@
         ./utils.nix
         ./terminal-utils.nix
         # ./work.nix
-        ./virtual-machine.nix
-      ];
+        # ./virtual-machine.nix
+      	./games.nix
+	];
     };
   };
 }
