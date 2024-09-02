@@ -1,9 +1,10 @@
 {
-  description = "XNM's NixOS Configuration";
+  description = "Matthew's NixOS Configuration";
 
   inputs = {
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-      rust-overlay.url = "github:oxalica/rust-overlay";
+      hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      #rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs = { nixpkgs, ... } @ inputs:
@@ -48,7 +49,7 @@
         ./dns.nix
         # ./vpn.nix
         ./users.nix
-        ./virtualisation.nix
+        #./virtualisation.nix
         ./programming-languages.nix
         # ./lsp.nix
         # ./rust.nix
@@ -58,8 +59,8 @@
         ./terminal-utils.nix
         # ./work.nix
         # ./virtual-machine.nix
-      	./games.nix
-	];
+        ./games.nix
+      ];
     };
   };
 }

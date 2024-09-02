@@ -25,7 +25,7 @@
     # skim #fzf better alternative in rust
     monolith
     aria
-    # macchina #neofetch alternative in rust
+    macchina #neofetch alternative in rust
     sd
     ouch
     duf
@@ -53,5 +53,6 @@
     rsclock
     cava
     figlet
+    starship
   ];
 }
