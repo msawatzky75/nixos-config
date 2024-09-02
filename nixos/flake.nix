@@ -4,6 +4,8 @@
   inputs = {
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
       hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+      aagl.inputs.nixpkgs.follows = "nixpkgs";
       #rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
@@ -59,7 +61,7 @@
         ./terminal-utils.nix
         # ./work.nix
         # ./virtual-machine.nix
-        ./games.nix
+        ./games/default.nix
       ];
     };
   };
