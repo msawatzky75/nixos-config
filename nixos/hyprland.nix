@@ -1,27 +1,36 @@
-{ pkgs, ... }:
+{ inputs, pkgs, system, ... }:
 
 {
+  nixpkgs.overlays = [
+    inputs.hyprland.overlays.default
+    inputs.hyprland.overlays.hyprland-packages
+  ];
   # Enable Hyprland
-  programs.hyprland.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+  };
+  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
   environment.systemPackages = with pkgs; [
-    pyprland
+    #pyprland
     hyprpicker
     hyprcursor
-    hyprlock
-    hypridle
-    hyprpaper
+    #hyprlock
+    #hypridle
+    #hyprpaper
 
     kitty
 
     starship
     helix
 
-    qutebrowser
+    #qutebrowser
     zathura
     mpv
     imv
   ];
-}/*  */
+}
+
