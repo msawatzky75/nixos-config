@@ -171,3 +171,6 @@ compctl -K _dotnet_zsh_complete dotnet
 
 # Added by ProtonUp-Qt on 03-10-2023 23:57:33
 if [ -d "/home/matthew/stl/prefix" ]; then export PATH="$PATH:/home/matthew/stl/prefix"; fi
+
+fpath=( ~/.zfunc "${fpath[@]}" )
+autoload -U $fpath[1]/*(.:t)
