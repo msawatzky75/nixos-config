@@ -2,8 +2,8 @@
   description = "Matthew's NixOS Configuration";
 
   inputs = {
-      nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-      hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      nixpkgs.url = "github:NixOS/nixpkgs/master";
+      # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       aagl.url = "github:ezKEa/aagl-gtk-on-nix";
       aagl.inputs.nixpkgs.follows = "nixpkgs";
       #rust-overlay.url = "github:oxalica/rust-overlay";
