@@ -62,6 +62,7 @@
         # ./work.nix
         # ./virtual-machine.nix
         ./games/default.nix
+        ./vscode.nix
       ];
     };
   };

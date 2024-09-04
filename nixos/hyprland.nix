@@ -5,21 +5,23 @@
     inputs.hyprland.overlays.default
     inputs.hyprland.overlays.hyprland-packages
   ];
+
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    xwayland.enable = true;
   };
-  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  #environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
   environment.systemPackages = with pkgs; [
     #pyprland
     hyprpicker
     hyprcursor
-    #hyprlock
-    #hypridle
+    hyprlock
+    hypridle
     #hyprpaper
 
     kitty
@@ -32,5 +34,10 @@
     mpv
     imv
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 }
 
