@@ -1,7 +1,6 @@
 home/.local
 
 home/.config/discord
-!home/.config/discord/settings.json
 
 home/.config/Valve
 home/.config/openvr
