@@ -1,6 +1,6 @@
 {
   imports = [
     ./sleepy-game.nix
-    #./steam.nix
+    ./steam.nix
   ];
 }
