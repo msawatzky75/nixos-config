@@ -1,21 +1,28 @@
 { ... }:
 
 {
-  # Enable networking
-  networking.hostName = "kubo"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    # Enable networking
+    hostName = "kubo"; # Define your hostname.
+    # Pick only one of the below networking options.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+    interfaces.enp7s0.useDHCP = true;
+    interfaces.enp8s0.useDHCP = true;
+    interfaces.enp5s0f0.ipv4.addresses = [{
+      address = "172.16.0.2";
+      prefixLength = 16;
+    }];
+    # interfaces.enp5s0f1.ipv4.addresses = [{
+    #   address = "172.16.0.2";
+    #   prefixLength = 16;
+    # }];
+  };
+
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-#  networking.interfaces.enp5s0f1.ipv4.addresses = [{
-#    address = "172.16.0.2";
-#    prefixLength = 16;
-#  }];
-  networking.interfaces.enp5s0f0.ipv4.addresses = [{
-    address = "172.16.0.2";
-    prefixLength = 16;
-  }];
+
 }

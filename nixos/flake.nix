@@ -2,11 +2,11 @@
   description = "Matthew's NixOS Configuration";
 
   inputs = {
-      nixpkgs.url = "github:NixOS/nixpkgs/master";
-      # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      # nixpkgs.url = "github:NixOS/nixpkgs/master";
+      nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+      hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       aagl.url = "github:ezKEa/aagl-gtk-on-nix";
       aagl.inputs.nixpkgs.follows = "nixpkgs";
-      #rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs = { nixpkgs, ... } @ inputs:
@@ -19,7 +19,6 @@
         # ./nvidia.nix
         # ./disable-nvidia.nix
         ./opengl.nix
-        # ./fingerprint-scanner.nix
         # ./clamav-scanner.nix
         # ./yubikey.nix
         ./sound.nix
@@ -40,7 +39,6 @@
         ./security-services.nix
         ./services.nix
         # ./printing.nix
-        # ./gnome.nix
         ./hyprland.nix
         ./environment-variables.nix
         ./bluetooth.nix
@@ -48,18 +46,13 @@
         # ./mac-randomize.nix
         ./open-ssh.nix
         ./firewall.nix
-        ./dns.nix
         # ./vpn.nix
         ./users.nix
         #./virtualisation.nix
         ./programming-languages.nix
-        # ./lsp.nix
-        # ./rust.nix
-        # ./wasm.nix
         ./info-fetchers.nix
         ./utils.nix
         ./terminal-utils.nix
-        # ./work.nix
         # ./virtual-machine.nix
         ./games/default.nix
         ./vscode.nix

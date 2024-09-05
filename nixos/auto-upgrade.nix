@@ -7,9 +7,9 @@
   # I recommend running `topgrade` once a week or at least once a month)
   system.autoUpgrade = {
     enable = true;
-    operation = "switch"; # If you don't want to apply updates immediately, only after rebooting, use `boot` option in this case
+    operation = "boot"; # If you don't want to apply updates immediately, only after rebooting, use `boot` option in this case
     flake = "/etc/nixos";
-    flags = [ "--update-input" "nixpkgs" "--update-input" "rust-overlay" "--commit-lock-file" ];
+    flags = [ "--update-input" "nixpkgs" "--update-input" "hyprland" "--commit-lock-file" ];
     dates = "weekly";
     # channel = "https://nixos.org/channels/nixos-unstable";
   };

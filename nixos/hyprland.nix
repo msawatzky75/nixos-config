@@ -1,4 +1,4 @@
-{ inputs, pkgs, system, ... }:
+{ inputs, pkgs, ... }:
 
 {
   # nixpkgs.overlays = [
@@ -9,10 +9,13 @@
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
+  programs.hyprlock.enable = true;
+  services.hypridle.enable = true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
@@ -20,8 +23,8 @@
     #pyprland
     hyprpicker
     hyprcursor
-    hyprlock
-    hypridle
+    # hyprlock
+    # hypridle
     #hyprpaper
 
     kitty
@@ -37,6 +40,7 @@
 
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 }
