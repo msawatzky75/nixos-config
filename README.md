@@ -7,22 +7,16 @@
 ![nixpkgs](https://img.shields.io/badge/nixpkgs-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8aadf4)
 ![linux kernel](https://img.shields.io/badge/kernel-zen-informational.svg?style=flat&logo=linux&logoColor=f4dbd6&colorA=24273A&colorB=b7bdf8)
 ![hyprland](https://img.shields.io/badge/hyprland-stable-informational.svg?style=flat&logo=wayland&logoColor=eed49f&colorA=24273A&colorB=91d7e3)
-![rust](https://img.shields.io/badge/rust-nightly-informational.svg?style=flat&logo=rust&logoColor=f5a97f&colorA=24273A&colorB=f5a97f)
 
 </div>
-
-![Showcase Gif](home/Pictures/Records/record.gif)
 
 ## Table of Contents
 
 - [About](#-about)
-- [Showcase](#-showcase)
 - [Components](#-components)
 - [Features](#-features)
 - [Installation](#-installation)
 - [Keybindings](#️-keybindings)
-- [Useful aliases in Fish Shell](#-useful-aliases-in-fish-shell)
-- [Useful info for Rustaceans](#-useful-info-for-rustaceans)
 - [Yubikey on NixOS](#-yubikey-on-nixos)
 - [License](#-license)
 
@@ -30,34 +24,10 @@
 
 This repo is based on [XNM's nixos config](https://github.com/XNM1/linux-nixos-hyprland-config-dotfiles).
 
-This repository houses my NixOS Linux ❄️ flake configuration, featuring the Hyprland window manager and adorned with the stylish Catppuccin Macchiato theme. I rely on this setup as my daily driver for work and programming, primarily in Rust 🦀. Feel free to utilize it in its entirety or borrow specific components for your own configuration.
+NOTE: currently XWayland fails to start with a VR headset plugged in.
+This will prevent apps like steam and discord from running.
+https://github.com/hyprwm/Hyprland/issues/6949
 
-🚨 It's essential to note that this configuration is not minimalistic or lightweight and may require some disk space and knowledge to understand. If you're looking for something simpler, this configuration may not be suitable for you.
-
-This system leverages cutting-edge channels and versions of software to provide you with the latest updates and features. Notably, it utilizes:
-
-- **flake** (An experimental feature of the Nix package manager)
-- ~~**nur** (The Nix User Repository)~~ \*currently disabled
-- **nixpkgs**: unstable
-- **rust**: nightly version
-
-This approach ensures that you stay on the forefront of technology, receiving the most recent software advancements promptly. 🚨 However, it's important to note that this emphasis on bleeding-edge software may impact the stability of the system.
-
-🚨 Please note that the system utilizes **Podman** instead of **Docker** for containerization due to various reasons, primarily related to security (rootless and daemonless containers), easier migration to Kubernetes, availability of pods, compatibility with systemd, and better security for `distrobox`. If you prefer to use **Docker** instead of **Podman**, you can make the switch by commenting out the **Podman** section in the `nixos/virtualisation.nix` file and uncommenting the **Docker** section. More details on **Docker** configuration in NixOS can be found [here](https://nixos.wiki/wiki/Docker).
-
-The system also enables SELinux patches, as well as AppArmor and Tomoyo Linux Security Modules. It includes security daemons such as Fail2Ban and USBGuard, with Firejail preinstalled to meet your security requirements.
-
-You have the flexibility to customize these configurations according to your needs by modifying the respective configuration files.
-
-## 🌟 Showcase
-
-The showcased images do not reflect the latest version of the system's appearance. The final setup may vary slightly.
-
-![Screenshot 1](home/Pictures/Screenshots/screenshot-1.png)
-![Screenshot 2](home/Pictures/Screenshots/screenshot-2.png)
-![Screenshot 3](home/Pictures/Screenshots/screenshot-3.png)
-![Screenshot 4](home/Pictures/Screenshots/screenshot-4.png)
-[Showcase Video](home/Videos/Records/record.mp4)
 
 ## 🔧 Components
 
@@ -65,20 +35,20 @@ The showcased images do not reflect the latest version of the system's appearanc
 | ---------------- | ----------------------------------------------- |
 | Distro           | NixOS                                           |
 | Kernel           | Zen                                             |
-| Shell            | Fish                                            |
+| Shell            | Zsh                                             |
 | Display Server   | Wayland                                         |
 | WM (Compositor)  | Hyprland                                        |
 | Bar              | Waybar                                          |
 | Notification     | Dunst                                           |
 | Launcher         | Rofi-Wayland                                    |
 | Editor           | Helix                                           |
-| Terminal         | WezTerm + Starship                              |
+| Terminal         | Kitty + Starship                                |
 | OSD              | Avizo                                           |
 | Night Gamma      | Gammastep                                       |
 | Fetch Utility    | Neofetch                                        |
 | Theme            | Catppuccin Macchiato                            |
 | Icons            | Colloid-teal-dark, Numix-Circle                 |
-| Font             | JetBrains Mono + Nerd Font Patch                |
+| Font             | Fira Code + JetBrains Mono + Nerd Font Patch    |
 | Player           | Youtube Music + Spotify                         |
 | File Browser     | Thunar                                          |
 | Internet Browser | Qutebrowser, Brave + Vimium + NightTab + Stylus |
@@ -208,78 +178,8 @@ After this, you will have a complete system.
 | SUPER + ]            | Player next track                                         |
 | SUPER + [            | Player previous track                                     |
 
-You can find all other keybindings in `/home/.config/hypr/hyprland.conf` in the bind section. All system fish scripts are located at `/home/.config/fish/functions` directory.
+You can find all other keybindings in `/home/.config/hypr/hyprland.conf` in the bind section. All system zsh functions are located at `/home/.zfunc/` directory.
 
-## 🐟 Useful aliases in Fish Shell
-
-This system includes a fish shell configuration file (`/home/.config/fish/config.fish`) that provides various aliases to enhance your experience working with it.
-
-Common commands:
-
-- `cl`: clear the terminal screen (shorthand for `clear`)
-- `lgit`: launch the `lazygit` command-line Git client
-- `ldocker`: launch the `lazydocker` command-line Docker client
-- `conf`: navigate to the `~/.config` directory
-
-NixOS-specific commands:
-
-- `nswitch`: rebuild your system using the current flake
-- `nswitchu`: rebuild and update your system using the current flake
-- `nau`: add the unstable channel to the package manager
-- `nsgc`: optimize the nix store and remove unreferenced and obsolete store paths (equivalent to `sudo nix-store --gc`)
-- `ngc`: delete all old generations of user profiles (equivalent to `sudo nix-collect-garbage -d`)
-- `ngc7`: delete generations of user profiles older than 7 days (equivalent to `sudo nix-collect-garbage --delete-older-than 7d`)
-- `ngc14`: delete generations of user profiles older than 14 days (equivalent to `sudo nix-collect-garbage --delete-older-than 14d`)
-- `nixos`: navigate to the `/etc/nixos` directory
-- `store`: navigate to the `/nix/store` directory
-
-You can customize this configuration by adding more aliases to the file and editing existing ones. This makes your experience more personalized and smoother.
-
-## 🦀 Useful info for Rustaceans
-
-Here are some tips to enhance your Rust experience on this system:
-
-1. **Installation Customization:**
-   This system utilizes [rust-overlay](https://github.com/oxalica/rust-overlay) for Rust installation using the Nix approach. To customize the installation, including modifications to compilation targets, components, channels, or profiles, follow these steps:
-
-   - Locate the `nixos/rust-toolchain.toml` file and make the necessary adjustments based on your requirements.
-
-   - If you are working on multiple projects with distinct `rust-toolchain.toml` files or need to switch between stable and nightly Rust versions, consider the following options:
-
-     - Set up a Nix environment using `flake.nix` and [rust-overlay](https://github.com/oxalica/rust-overlay) for each project separately. Utilize `nix develop` or `direnv` to manage project-specific Rust environments.
-
-     - Alternatively, you can install `rustup` through `environment.systemPackages` and nixpkgs for a system-wide Rust setup. This allows you to manage Rust versions globally through `rustup`.
-
-2. **Troubleshooting Compilation Issues:**
-   If you encounter issues during Rust compilation, particularly those related to OpenSSL, SQLite, Wayland, or any other program utilized by `pkg-config` in the compilation process (see [here](https://nixos.wiki/wiki/Rust#Building_Rust_crates_that_require_external_system_libraries)), you can employ the `nix-shell -p pkg-config {your_dependency} [other_dependencies] --run fish` command. This command opens a Nix shell with the necessary dependencies, facilitating seamless code compilation. Alternatively, you can employ the approach outlined in the initial section (Installation Customization) by utilizing `flake.nix` with dev shell instead of `nix-shell`.
-   Moreover, when using the Nix Dev shell, be aware that the compilation takes place in the runtime directory, which might be insufficient for certain projects. To address this, you can adjust the runtime directory size in the `nixos/users.nix` file under `services.logind.extraConfig="RuntimeDirectorySize=8G"`.
-
-3. **Cross-Compilation:**
-   For cross-compilation, consider using tools like `zigbuild` or `cross`. Personally, I find `zigbuild` preferable, but both are valuable options for your cross-compilation needs.
-
-4. **Cargo and Rust Tools:**
-   This system comes equipped with a variety of cargo and rust tools to ensure a smooth Rust development experience. Some of these tools include:
-
-   - `rust-analyzer`
-   - `cargo-watch`
-   - `cargo-deny`
-   - `cargo-audit`
-   - `cargo-update`
-   - `cargo-edit`
-   - `cargo-outdated`
-   - `cargo-license`
-   - `cargo-tarpaulin`
-   - `cargo-cross`
-   - `cargo-zigbuild`
-   - `cargo-nextest`
-   - `cargo-spellcheck`
-   - `cargo-modules`
-   - `cargo-bloat`
-   - `cargo-unused-features`
-   - `bacon`
-
-5. **Environment Setup:**
-   You can set up your Rust project environment on this system using `nix develop` or `nix-shell` with `default.nix`, `shell.nix`, or `flake.nix` to create a tailored environment for your Rust project (Also, I personally recommend using it alongside with [direnv](https://direnv.net/)).
 
 ## 🔑 Yubikey on NixOS
 

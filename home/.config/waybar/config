@@ -272,30 +272,20 @@
 		"spacing": 4, // Gaps between modules (4px)
 		"modules-left": ["user"],
 		"modules-center": ["hyprland/window"],
-		"modules-right": ["keyboard-state", "hyprland/language"],
+		"modules-right": ["hyprland/language"],
 
 		// Modules Config
 		"hyprland/window": {
-			"format": "👼 {title} 😈",
+			"format": "{title}",
 			"max-length": 50
 		},
 
 		"hyprland/language": {
 			"format-en": "🇺🇸 ENG (US)",
-			"format-uk": "🇺🇦 UKR",
-			"format-ru": "🇷🇺 RUS",
+			// "format-uk": "🇺🇦 UKR",
+			// "format-ru": "🇷🇺 RUS",
 			"keyboard-name": "at-translated-set-2-keyboard",
 			"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
-		},
-
-		"keyboard-state": {
-			// "capslock": true,
-			// "numlock": true,
-			"format": "{name} {icon}",
-			"format-icons": {
-				"locked": "",
-				"unlocked": ""
-			}
 		},
 
 		"user": {

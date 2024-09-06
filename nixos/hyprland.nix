@@ -17,7 +17,7 @@
   services.hypridle.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+  # environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
   environment.systemPackages = with pkgs; [
     #pyprland
@@ -28,8 +28,6 @@
     #hyprpaper
 
     kitty
-
-    starship
     helix
 
     #qutebrowser
@@ -40,7 +38,6 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 }

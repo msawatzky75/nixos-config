@@ -2,7 +2,6 @@
   description = "Matthew's NixOS Configuration";
 
   inputs = {
-      # nixpkgs.url = "github:NixOS/nixpkgs/master";
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
       hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -13,7 +12,7 @@
   {
     nixosConfigurations.kubo = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
-      modules = [
+        modules = [
         ./configuration.nix
         ./hardware-configuration.nix
         # ./nvidia.nix
