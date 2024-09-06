@@ -55,6 +55,7 @@
         # ./virtual-machine.nix
         ./games/default.nix
         ./vscode.nix
+        ./flatpak.nix
       ];
     };
   };
