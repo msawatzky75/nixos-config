@@ -8,7 +8,7 @@
 		"position": "top", // Waybar position (top|bottom|left|right)
 		"height": 36, // Waybar height (to be removed for auto height)
 		"spacing": 4, // Gaps between modules (4px)
-		"modules-left": ["hyprland/workspaces", "hyprland/submap"],
+		"modules-left": ["hyprland/submap", "wlr/taskbar"],
 		"modules-center": [
 			"clock#time",
 			"custom/separator",
@@ -21,30 +21,14 @@
 		"modules-right": ["bluetooth", "network", "group/misc", "custom/logout_menu"],
 
 		// Modules Config
-		"hyprland/workspaces": {
-			"on-click": "activate",
+		"wlr/taskbar": {
 			"format": "{icon}",
-			"format-icons": {
-				"1": "󰲠",
-				"2": "󰲢",
-				"3": "󰲤",
-				"4": "󰲦",
-				"5": "󰲨",
-				"6": "󰲪",
-				"7": "󰲬",
-				"8": "󰲮",
-				"9": "󰲰",
-				"10": "󰿬",
-				"special": ""
-
-				// "active": "",
-				// "default": "",
-				// "empty": ""
-			},
-			"show-special": true,
-			"persistent-workspaces": {
-				"*": 10
-			}
+			"icon-size": 20,
+			"icon-theme": "Numix-Circle",
+			"tooltip-format": "{title}",
+			"on-click": "activate",
+			"on-click-right": "close",
+			"on-click-middle": "fullscreen"
 		},
 
 		"hyprland/submap": {
@@ -53,7 +37,8 @@
 		},
 
 		"clock#time": {
-			"format": "{:%H:%M %Ez}"
+			"interval": 1,
+			"format": "{:%H:%M:%S %Ez}"
 			// "locale": "en_US.UTF-8",
 			// "timezones": [ "Europe/Kyiv", "America/New_York" ],
 		},
@@ -268,11 +253,15 @@
 		"name": "bottom_bar",
 		"layer": "top", // Waybar at top layer
 		"position": "bottom", // Waybar position (top|bottom|left|right)
-		"height": 36, // Waybar height (to be removed for auto height)
+		// "height": 36, // Waybar height (to be removed for auto height)
 		"spacing": 4, // Gaps between modules (4px)
-		"modules-left": ["user"],
+		"modules-left": [
+			"cpu", "memory", "disk", 
+			"temperature", "battery", "backlight", 
+			"pulseaudio", "systemd-failed-units"
+		],
 		"modules-center": ["hyprland/window"],
-		"modules-right": ["hyprland/language"],
+		"modules-right": ["tray"],
 
 		// Modules Config
 		"hyprland/window": {
@@ -286,51 +275,6 @@
 			// "format-ru": "🇷🇺 RUS",
 			"keyboard-name": "at-translated-set-2-keyboard",
 			"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
-		},
-
-		"user": {
-			"format": " <span color='#8bd5ca'>{user}</span> (up <span color='#f5bde6'>{work_d} d</span> <span color='#8aadf4'>{work_H} h</span> <span color='#eed49f'>{work_M} min</span> <span color='#a6da95'>↑</span>)",
-			"icon": true
-		}
-	},
-
-	// Left Bar Config
-	{
-		// Main Config
-		"name": "left_bar",
-		"layer": "top", // Waybar at top layer
-		"position": "left", // Waybar position (top|bottom|left|right)
-		"spacing": 4, // Gaps between modules (4px)
-		"width": 75,
-		"margin-top": 10,
-		"margin-bottom": 10,
-		"modules-left": ["wlr/taskbar"],
-		"modules-center": [
-			"cpu",
-			"memory",
-			"disk",
-			"temperature",
-			"battery",
-			"backlight",
-			"pulseaudio",
-			"systemd-failed-units"
-		],
-		"modules-right": ["tray"],
-
-		// Modules Config
-		"wlr/taskbar": {
-			"format": "{icon}",
-			"icon-size": 20,
-			"icon-theme": "Numix-Circle",
-			"tooltip-format": "{title}",
-			"on-click": "activate",
-			"on-click-right": "close",
-			"on-click-middle": "fullscreen"
-		},
-
-		"tray": {
-			"icon-size": 20,
-			"spacing": 2
 		},
 
 		"cpu": {
@@ -423,10 +367,10 @@
 				"low": 10
 			},
 			"tooltip-format": "{desc}",
-			"format": "{icon}{volume}%\n{format_source}",
-			"format-bluetooth": "󰂱{icon}{volume}%\n{format_source}",
-			"format-bluetooth-muted": "󰂱󰝟{volume}%\n{format_source}",
-			"format-muted": "󰝟{volume}%\n{format_source}",
+			"format": "{icon}{volume}%",
+			"format-bluetooth": "󰂱{icon}{volume}%",
+			"format-bluetooth-muted": "󰂱󰝟{volume}%",
+			"format-muted": "󰝟{volume}%",
 			"format-source": "󰍬{volume}%",
 			"format-source-muted": "󰍭{volume}%",
 			"format-icons": {
@@ -443,11 +387,13 @@
 			},
 			"reverse-scrolling": true,
 			"reverse-mouse-scrolling": true,
-			"on-click": "pavucontrol"
+			"on-click": "pavucontrol",
+			"ignored-sinks": ["Easy Effects Sink"]
 		},
 
-		"systemd-failed-units": {
-			"format": "✗ {nr_failed}"
+		"tray": {
+			"icon-size": 20,
+			"spacing": 2
 		}
 	}
 ]
