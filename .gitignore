@@ -12,3 +12,5 @@ home/.config/VSCodium/
 !home/.config/VSCodium/Preferences
 !home/.config/VSCodium/User
 
+home/.config/kdeconnect/*.pem
+!home/.config/kdeconnect/config

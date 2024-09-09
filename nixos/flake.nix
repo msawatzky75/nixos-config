@@ -15,6 +15,7 @@
         modules = [
         ./configuration.nix
         ./hardware-configuration.nix
+        ./disk.nix
         # ./nvidia.nix
         # ./disable-nvidia.nix
         ./opengl.nix

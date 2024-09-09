@@ -51,5 +51,6 @@
     avizo
     wlogout
     gifsicle
+    kdeconnect
   ];
 }

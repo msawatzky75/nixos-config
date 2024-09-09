@@ -54,5 +54,8 @@
     cava
     figlet
     starship
+
+    nano
+    micro
   ];
 }
