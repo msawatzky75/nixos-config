@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   networking = {
@@ -11,7 +11,7 @@
     # 1g
     interfaces.enp7s0.useDHCP = true;
     # 2.5g
-    interfaces.enp8s0 = {
+    interfaces.enp6s0 = {
       ipv4.addresses = [{
         address = "172.16.0.2";
         prefixLength = 16;
@@ -34,4 +34,9 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  programs.mtr.enable = true;
+  services.iperf3.enable = true;
+  environment.systemPackages = with pkgs; [
+    
+  ];
 }
