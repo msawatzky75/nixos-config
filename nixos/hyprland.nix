@@ -23,9 +23,8 @@
     #pyprland
     hyprpicker
     hyprcursor
-    # hyprlock
-    # hypridle
     #hyprpaper
+    hyprshot
 
     kitty
     helix
