@@ -12,5 +12,13 @@ home/.config/VSCodium/
 !home/.config/VSCodium/Preferences
 !home/.config/VSCodium/User
 
+home/.config/Code/*
+!home/.config/Code/Preferences
+!home/.config/Code/User/
+home/.config/Code/User/*
+!home/.config/Code/User/settings.json
+!home/.config/Code/User/keybindings.json
+
 home/.config/kdeconnect/*.pem
 !home/.config/kdeconnect/config
+home/.config/Thunar

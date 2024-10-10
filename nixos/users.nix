@@ -5,12 +5,11 @@
   users.users.matthew = {
     isNormalUser = true;
     description = "matthew";
-    extraGroups = [ "networkmanager" "input" "wheel" "video" "audio" "tss" ];
+    extraGroups = [ "networkmanager" "input" "wheel" "video" "audio" "tss" "corectrl" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       spotify
       discord
-      vscodium
       firefox
     ];
   };

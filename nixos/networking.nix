@@ -12,6 +12,7 @@
     interfaces.enp7s0.useDHCP = true;
     # 2.5g
     interfaces.enp6s0 = {
+      useDHCP = false;
       ipv4.addresses = [{
         address = "172.16.0.2";
         prefixLength = 16;
@@ -37,6 +38,6 @@
   programs.mtr.enable = true;
   services.iperf3.enable = true;
   environment.systemPackages = with pkgs; [
-    
+    iperf3
   ];
 }

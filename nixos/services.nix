@@ -26,6 +26,9 @@
   # services.gnome.core-shell.enable = true;
   # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
+  programs.corectrl.enable = true;
+  security.polkit.enable = true;
+
   environment.systemPackages = with pkgs; [
     at-spi2-atk
     qt6.qtwayland
@@ -51,6 +54,5 @@
     avizo
     wlogout
     gifsicle
-    kdeconnect
   ];
 }

@@ -1,0 +1,134 @@
+/*  */{
+	"workbench.startupEditor": "none",
+	"git.enableSmartCommit": true,
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	"eslint.validate": ["vue", "hmtl", "javascript", "typescript", "svelte"],
+	"files.trimTrailingWhitespace": true,
+	"security.workspace.trust.untrustedFiles": "open",
+	"blockhighlight.background": ["0", "0", "0", ".18"],
+	"git-graph.date.format": "ISO Date & Time",
+	"git.enableCommitSigning": true,
+	"git-graph.repository.sign.commits": true,
+	"terminal.integrated.automationProfile.linux": {
+		"path": "/usr/bin/flatpak-spawn",
+		"args": ["--host", "--env=TERM=xterm-256color", "zsh"]
+	},
+	"explorer.confirmDragAndDrop": false,
+	"gitlens.advanced.messages": {
+		"suppressCommitHasNoPreviousCommitWarning": true
+	},
+	"workbench.sideBar.location": "right",
+	"eslint.lintTask.enable": true,
+	"workbench.iconTheme": "material-icon-theme",
+	"material-icon-theme.files.associations": {
+		"*.php": "php_elephant",
+		"*Controller.php": "php_elephant_pink"
+	},
+	"material-icon-theme.activeIconPack": "vue",
+	"github.copilot.enable": {
+		"*": true,
+		"yaml": true,
+		"plaintext": true,
+		"markdown": true,
+		"log": false
+	},
+	"eslint.run": "onSave",
+	"intelephense.format.braces": "k&r",
+	"terminal.integrated.persistentSessionReviveProcess": "never",
+	"prettier.printWidth": 110,
+	"prettier.useTabs": true,
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[php]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "modificationsIfAvailable",
+		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "advanced",
+		"gitlens.codeLens.scopes": ["document"]
+	},
+	"explorer.confirmDelete": false,
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"eslint.format.enable": false,
+	"prettier.enableDebugLogs": true,
+	"terminal.integrated.fontFamily": "'Fira Code'",
+
+	"editor.linkedEditing": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.inlineSuggest.enabled": true,
+	"editor.wordWrap": "on",
+	"editor.fontFamily": "'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'",
+	"editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss10', 'cv02', 'cv16', 'zero', 'onum'",
+	"editor.cursorBlinking": "phase",
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorStyle": "underline",
+	"editor.guides.bracketPairs": "active",
+	"editor.multiCursorModifier": "ctrlCmd",
+	"editor.minimap.enabled": false,
+	"editor.tabSize": 2,
+	"editor.suggest.preview": true,
+	"editor.lineHeight": 1.8,
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "boundary",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.fontSize": 13.5,
+	"editor.formatOnSave": true,
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	},
+	"formatFiles.excludedFolders": [
+		"node_modules",
+		".vscode",
+		".git",
+		"dist",
+		".chrome",
+		"vendor"
+	],
+	"git-graph.repository.commits.showSignatureStatus": true,
+	"files.exclude": {
+		"node_modules/": true
+	},
+	"settingsSync.ignoredExtensions": ["shelex.vscode-cy-helper"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"svelte.enable-ts-plugin": true,
+	"redhat.telemetry.enabled": false,
+	"prettier.prettierPath": "/home/matthews/.nvm/versions/node/v16.15.0/bin",
+	"tabnine.experimentalAutoImports": true,
+	"workbench.editorAssociations": {
+		"*.zip": "default"
+	},
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"workbench.editor.enablePreview": false,
+	"gitlens.codeLens.enabled": false,
+	"editor.stickyScroll.enabled": true,
+	"files.insertFinalNewline": true,
+	"totalTypeScript.hideAllTips": false,
+	"totalTypeScript.hideBasicTips": true,
+	"totalTypeScript.hiddenTips": [
+		"passing-generics-to-types"
+	],
+	"workbench.preferredHighContrastColorTheme": "Default Dark Modern"
+}

@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
-      vscode = vscodium;
+      #vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         bbenoist.nix
         ms-python.python
