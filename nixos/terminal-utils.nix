@@ -17,7 +17,7 @@
     progress
     noti
     topgrade
-    ripgrep
+    # ripgrep
     rewrk
     wrk2
     procs

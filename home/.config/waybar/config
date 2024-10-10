@@ -138,7 +138,7 @@
 			"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 			"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t({device_battery_percentage}%)",
 			"max-length": 35,
-			"on-click": "zsh -i -c bluetooth_toggle",
+			"on-click": ".local/scripts/bluetooth_toggle.sh",
 			"on-click-right": "blueman-manager"
 		},
 
@@ -154,7 +154,7 @@
 			// "format-linked": "󰈀 {ifname} (No IP)",
 			// "tooltip-format-ethernet":"Interface: {ifname}\nIP: {ipaddr}\nGW: {gwaddr}\nNetmask: {netmask}\nCIDR: {cidr}\n\n<span color='#a6da95'>{bandwidthUpBits}</span>\t<span color='#ee99a0'>{bandwidthDownBits}</span>\t<span color='#c6a0f6'>󰹹{bandwidthTotalBits}</span>",
 			"max-length": 35,
-			"on-click": "zsh -i -c wifi_toggle",
+			"on-click": ".local/scripts/wifi_toggle.sh",
 			"on-click-right": "kitty nmtui"
 		},
 
@@ -243,7 +243,7 @@
 			"return-type": "json",
 			"exec": "echo '{ \"text\":\"󰐥\", \"tooltip\": \"logout menu\" }'",
 			"interval": "once",
-			"on-click": "zsh -i -c wlogout_uniqe"
+			"on-click": "wlogout"
 		}
 	},
 
