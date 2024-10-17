@@ -6,19 +6,25 @@
       hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       aagl.url = "github:ezKEa/aagl-gtk-on-nix";
       aagl.inputs.nixpkgs.follows = "nixpkgs";
+      nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = { nixpkgs, ... } @ inputs:
+  outputs = { self, nixpkgs, ... } @ inputs:
+  let
+    system = "x86_64-linux";
+  in
   {
     nixosConfigurations.kubo = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-        modules = [
+      specialArgs = { inherit inputs system; };
+      system = system;
+      modules = [
         ./configuration.nix
         ./hardware-configuration.nix
         ./disk.nix
         # ./nvidia.nix
         # ./disable-nvidia.nix
-        ./opengl.nix
+        # ./opengl.nix
+        ./config/graphics.nix
         # ./clamav-scanner.nix
         # ./yubikey.nix
         ./sound.nix
@@ -48,15 +54,16 @@
         ./firewall.nix
         # ./vpn.nix
         ./users.nix
-        #./virtualisation.nix
+        ./virtualisation.nix
         ./programming-languages.nix
         ./info-fetchers.nix
         ./utils.nix
         ./terminal-utils.nix
         # ./virtual-machine.nix
         ./games/default.nix
-        ./vscode.nix
         ./flatpak.nix
+        ./applications/folding.nix
+        ./applications/vscode.nix
       ];
     };
   };

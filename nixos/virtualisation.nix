@@ -26,7 +26,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # nerdctl
+    nerdctl
 
     # firecracker
     # firectl
@@ -36,7 +36,7 @@
     qemu
 
     podman-compose
-    podman-tui
+    # podman-tui
 
     # lazydocker
     # docker-credential-helpers

@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-
+{ pkgs, inputs, system, ... }:
+let
+  extensions = inputs.nix-vscode-extensions.extensions.${system};
+in
 {
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
@@ -9,6 +11,8 @@
         ms-python.python
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-containers # devContainers
+
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";

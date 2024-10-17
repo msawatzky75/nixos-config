@@ -5,7 +5,7 @@
   users.users.matthew = {
     isNormalUser = true;
     description = "matthew";
-    extraGroups = [ "networkmanager" "input" "wheel" "video" "audio" "tss" "corectrl" ];
+    extraGroups = [ "networkmanager" "input" "wheel" "video" "render" "audio" "tss" "corectrl" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       spotify
