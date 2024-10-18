@@ -1,3 +1,4 @@
+*.log
 home/.local
 
 home/.config/dconf
