@@ -4,13 +4,15 @@
   hardware.amdgpu.opencl.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
+    rocmPackages.rocblas
+    rocmPackages.hipblas
+    rocmPackages.clr
   ];
   nixpkgs.config.rocmSupport = true;
   environment.systemPackages = with pkgs; [
     clinfo
-    rocmPackages.rocblas
-    rocmPackages.hipblas
-    rocmPackages.clr
+    mesa
+    ocl-icd
   ];
   services.foldingathome = {
     enable = true;
